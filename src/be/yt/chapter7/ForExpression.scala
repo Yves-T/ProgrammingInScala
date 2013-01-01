@@ -51,4 +51,20 @@ class ForExpression {
 
     } println(file + ": " + trimmed)
   }
+
+  def textFiles =
+    for {
+      file <- filesHere
+      if file.getName.endsWith(".txt")
+
+    } yield file
+
+  val forLineLengths =
+    for {
+      file <- filesHere
+      if file.getName.endsWith(".txt")
+      line <- fileLines(file)
+      trimmed = line.trim
+      if trimmed.matches(".*val.*")
+    } yield trimmed.length
 }

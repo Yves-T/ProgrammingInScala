@@ -25,4 +25,14 @@ object ForExpressionTester extends App {
 
   println("\nfor range with multiple generators")
   forExpression.grep(".*gcd.*")
+
+  println("\nfor with yield")
+  val scalaFiles = forExpression.textFiles
+  for (file <- scalaFiles)
+    println(file)
+
+  println("\nfor with yield")
+  val lineLengths = forExpression.forLineLengths
+  for (file <- lineLengths)
+    println(file)
 }
