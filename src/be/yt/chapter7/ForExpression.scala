@@ -9,6 +9,7 @@ import java.io.File
  */
 class ForExpression {
   val filesHere = (new File(".")).listFiles()
+
   def simpleFor() {
     for (file <- filesHere)
       println(file)
@@ -38,8 +39,8 @@ class ForExpression {
     ) println(file)
   }
 
-  def fileLines(file:java.io.File) =
-  scala.io.Source.fromFile(file).getLines().toList
+  def fileLines(file: java.io.File) =
+    scala.io.Source.fromFile(file).getLines().toList
 
   def grep(pattern: String) {
     for {
